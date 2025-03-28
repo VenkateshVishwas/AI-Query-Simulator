@@ -328,5 +328,5 @@ curl -X POST http://localhost:3000/validate \
 
 ## Author
 
-Venkatesh Vishwas- [GitHub Profile](https://github.com/your-profile)
+Venkatesh Vishwas- [GitHub Profile](https://github.com/VenkateshVishwas)
 
