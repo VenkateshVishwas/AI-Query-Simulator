@@ -1,155 +1,74 @@
-# AI Query Simulation Engine
+# AI Query Simulator
 
-## Overview
+## Deployment
 
-This is a lightweight backend service that simulates a simplified AI-powered data query system. It allows users to input natural language queries and returns simulated SQL-like responses. Authentication is implemented using JWT.
-
-## Features
-
-- Convert natural language queries into pseudo-SQL.
-- Validate and explain queries.
-- Secure API using JWT authentication.
-- Uses SQLite as a mock database.
-
----
-
-## Tech Stack
-
-- **Node.js** (Express.js)
-- **SQLite** (Mock Database)
-- **JWT** (Authentication)
-
----
+The application is deployed at: [AI Query Simulator](https://ai-query-simulator.onrender.com)
 
 ## Setup Instructions
 
-### 1. Clone the Repository
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/YOUR_USERNAME/AI-Query-Simulator.git
+   cd AI-Query-Simulator
+   ```
 
-```sh
-git clone https://github.com/VenkateshVishwas/AI-Query-Simulator
-cd ai-query-simulator
-```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
 
-### 2. Install Dependencies
+3. Create a `.env` file and add the following:
+   ```sh
+   JWT_SECRET=your_secret_key
+   DATABASE_URL=your_database_connection_string
+   ```
 
-```sh
-npm install
-```
-
-### 3. Setup Environment Variables
-
-Create a `.env` file in the root directory:
-
-```sh
-JWT_SECRET=your_secret_key
-```
-
-### 4. Start the Server
-
-```sh
-node server.js
-```
-
-The server runs on **[http://localhost:3000](http://localhost:3000)**
-
----
+4. Start the server:
+   ```sh
+   npm start
+   ```
 
 ## API Documentation
 
-### 1. **Login (Get JWT Token)**
+### Authentication
 
-**Endpoint:** `POST /login`
+- **Login**
+  ```sh
+  curl -X POST https://ai-query-simulator.onrender.com/login \
+  -H "Content-Type: application/json" \
+  -d '{"email": "user@example.com", "password": "password123"}'
+  ```
 
-#### Request:
+### Query Processing
 
-```json
-{
-  "email": "user@example.com",
-  "password": "password123"
-}
-```
+- **Execute a Query**
+  ```sh
+  curl -X POST https://ai-query-simulator.onrender.com/query \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_JWT_TOKEN" \
+  -d '{"query": "How many users signed up last month?"}'
+  ```
 
-#### Response:
+- **Explain a Query**
+  ```sh
+  curl -X POST https://ai-query-simulator.onrender.com/explain \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_JWT_TOKEN" \
+  -d '{"query": "Get total revenue by category"}'
+  ```
 
-```json
-{
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI..."
-}
-```
+- **Validate a Query**
+  ```sh
+  curl -X POST https://ai-query-simulator.onrender.com/validate \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_JWT_TOKEN" \
+  -d '{"query": "Show all orders from last week"}'
+  ```
 
----
+## Testing
 
-### 2. **Query Data**
-
-**Endpoint:** `POST /query`
-
-#### Request (Authenticated):
-
-```sh
-curl -X POST http://localhost:3000/query \
--H "Authorization: Bearer YOUR_JWT_TOKEN" \
--H "Content-Type: application/json" \
--d '{"question": "Show sales for Q1"}'
-```
-
-#### Response:
-
-```json
-{
-  "query": "SELECT * FROM sales WHERE quarter = 'Q1'",
-  "result": [ { "id": 1, "amount": 5000 } ]
-}
-```
+You can use **Postman** or the provided `curl` commands to test the API.
 
 ---
 
-### 3. **Explain Query**
-
-**Endpoint:** `POST /explain`
-
-#### Request:
-
-```sh
-curl -X POST http://localhost:3000/explain \
--H "Authorization: Bearer YOUR_JWT_TOKEN" \
--H "Content-Type: application/json" \
--d '{"question": "Show sales for Q1"}'
-```
-
-#### Response:
-
-```json
-{
-  "explanation": "Identified keywords: sales, Q1"
-}
-```
-
----
-
-### 4. **Validate Query**
-
-**Endpoint:** `POST /validate`
-
-#### Request:
-
-```sh
-curl -X POST http://localhost:3000/validate \
--H "Authorization: Bearer YOUR_JWT_TOKEN" \
--H "Content-Type: application/json" \
--d '{"question": "Show sales for Q1"}'
-```
-
-#### Response:
-
-```json
-{
-  "valid": true
-}
-```
-
----
-
-## Author
-
-Venkatesh Vishwas- [GitHub Profile](https://github.com/VenkateshVishwas)
-
+Your AI Query Simulator is now live and ready to use! 🚀
