@@ -173,7 +173,7 @@ MIT License
 
 ## Author
 
-Venkatesh Vishwas- [GitHub Profile](https://github.com/your-profile)
+Venkatesh Vishwas- [GitHub Profile](https://github.com/VenkateshVishwas/)
 
 # AI Query Simulation Engine
 
@@ -203,7 +203,7 @@ This is a lightweight backend service that simulates a simplified AI-powered dat
 ### 1. Clone the Repository
 
 ```sh
-git clone https://github.com/your-repo/ai-query-simulator.git
+git clone https://github.com/VenkateshVishwas/AI-Query-Simulator
 cd ai-query-simulator
 ```
 
@@ -323,28 +323,6 @@ curl -X POST http://localhost:3000/validate \
   "valid": true
 }
 ```
-
----
-
-## Deployment
-
-Deploy on **Render, Heroku, or Railway**:
-
-```sh
-git push heroku main  # Example for Heroku
-```
-
----
-
-## Postman Collection
-
-Import the **Postman collection** from `postman_collection.json` (included in the repo) for easy testing.
-
----
-
-## License
-
-MIT License
 
 ---
 
