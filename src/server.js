@@ -1,6 +1,6 @@
 const express = require("express");
-const db = require("./database");
-const { authenticate, generateToken } = require("./auth");
+const db = require("../database");
+const { authenticate, generateToken } = require("../auth");
 
 const app = express();
 app.use(express.json());
